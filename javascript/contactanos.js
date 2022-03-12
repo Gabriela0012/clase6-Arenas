@@ -22,6 +22,11 @@ mensaje.addEventListener("keyup", (e) => {
 
 })
 
+const pintarMensajeExito = () => {
+  alertSuccess.classList.remove("d-none");
+  alertSuccess.textContent = "Mensaje enviado con éxito";
+};
+
 const personas = []
 
 formulario.addEventListener("submit", validarFormulario)
@@ -35,7 +40,8 @@ function validarFormulario(e) {
     console.log ('formato no válido');
     return;
   }
-  alert ('formulario enviado');
+  pintarMensajeExito();
+  // alert ('formulario enviado');
   console.log ('formulario válido')
   let persona = new Persona(nombre.value, email.value, genero.value, mensaje.value);
   personas.push(persona)
@@ -53,5 +59,4 @@ class Persona {
     this.mensaje  = mensaje
   }
 }
-
 
